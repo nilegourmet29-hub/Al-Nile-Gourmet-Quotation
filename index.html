@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al Nile Gourmet Quotation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&amp;family=Playfair+Display:wght@400;700&amp;family=Roboto:wght@300;400;700&amp;display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --gold: #d4af37;
+        --dark-bg: #1a1a1a;
+        --dark-paper: #222222;
+        --text-white: #f5f5f5;
+        --text-gold: #e5c558;
+        --border-color: #444;
+      }
+
+      /* Print-specific styles */
+      @media print {
+        body {
+          background-color: var(--dark-paper) !important;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+        
+        .page-container {
+          border: 1px solid var(--gold) !important;
+          box-shadow: none !important;
+          page-break-after: avoid !important;
+          page-break-inside: avoid !important;
+          width: 100% !important;
+          max-width: 100% !important;
+        }
+
+        table {
+          page-break-inside: avoid !important;
+        }
+
+        .section-title {
+          page-break-after: avoid !important;
+          page-break-inside: avoid !important;
+        }
+
+        thead {
+          display: table-header-group !important;
+        }
+
+        tr {
+          page-break-inside: avoid !important;
+        }
+
+        .summary-box {
+          page-break-inside: avoid !important;
+        }
+
+        footer {
+          page-break-inside: avoid !important;
+        }
+      }
+
+      @page {
+        size: A4;
+        margin: 10mm;
+      }
+
+      body {
+        background-color: var(--dark-bg);
+        color: var(--text-white);
+        font-family: 'Roboto', 'Amiri', sans-serif; /* Roboto for English, Amiri for Arabic */
+        margin: 0 auto;
+        padding: 20px;
+        max-width: 880px;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* Paper Effect */
+      .page-container {
+        background-color: var(--dark-paper);
+        border: 1px solid var(--gold);
+        padding: 40px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        position: relative;
+        page-break-inside: avoid;
+      }
+
+      /* Decorative Corners */
+      .corner {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        border: 2px solid var(--gold);
+      }
+      .top-left {
+        top: 10px;
+        left: 10px;
+        border-right: none;
+        border-bottom: none;
+      }
+      .top-right {
+        top: 10px;
+        right: 10px;
+        border-left: none;
+        border-bottom: none;
+      }
+      .bottom-left {
+        bottom: 10px;
+        left: 10px;
+        border-right: none;
+        border-top: none;
+      }
+      .bottom-right {
+        bottom: 10px;
+        right: 10px;
+        border-left: none;
+        border-top: none;
+      }
+
+      /* Header */
+      header {
+        text-align: center;
+        border-bottom: 2px solid var(--gold);
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+      }
+
+      h1 {
+        font-family: 'Playfair Display', 'Amiri', serif;
+        color: var(--gold);
+        font-size: 32px;
+        margin: 0 0 10px 0;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      .location {
+        font-size: 14px;
+        color: #ccc;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+
+      .doc-title {
+        background-color: var(--gold);
+        color: var(--dark-bg);
+        display: inline-block;
+        padding: 8px 30px;
+        font-weight: bold;
+        font-size: 18px;
+        border-radius: 2px;
+        margin-bottom: 10px;
+        font-family: 'Playfair Display', serif;
+      }
+
+      .subtitle {
+        font-size: 16px;
+        color: var(--text-gold);
+        margin-top: 10px;
+      }
+
+      .meta-info {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 20px;
+        font-size: 14px;
+        color: #aaa;
+        border-bottom: 1px solid #333;
+        padding-bottom: 10px;
+      }
+
+      /* Table Styling */
+      .section-title {
+        color: var(--gold);
+        font-family: 'Playfair Display', 'Amiri', serif;
+        font-size: 18px;
+        margin-top: 25px;
+        margin-bottom: 12px;
+        border-left: 3px solid var(--gold);
+        padding-left: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 15px;
+        font-size: 13px;
+        page-break-inside: avoid;
+      }
+
+      th {
+        text-align: left;
+        padding: 10px;
+        border-bottom: 1px solid var(--gold);
+        color: var(--gold);
+        font-weight: normal;
+        text-transform: uppercase;
+        font-size: 11px;
+        letter-spacing: 1px;
+        page-break-after: avoid;
+      }
+
+      th.ar {
+        text-align: right;
+      }
+      th.center {
+        text-align: center;
+      }
+      th.num {
+        text-align: right;
+      }
+
+      td {
+        padding: 10px;
+        border-bottom: 1px solid #333;
+        color: #ddd;
+        page-break-inside: avoid;
+      }
+
+      tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+      }
+
+      tr:last-child td {
+        border-bottom: none;
+      }
+
+      .item-ar {
+        font-family: 'Amiri', serif;
+        font-size: 15px;
+        color: #fff;
+      }
+
+      .item-en {
+        display: block;
+        font-size: 12px;
+        color: #aaa;
+        margin-top: 3px;
+      }
+
+      td.price {
+        text-align: right;
+        font-family: 'Roboto', sans-serif;
+        color: var(--text-gold);
+      }
+
+      td.qty {
+        text-align: center;
+        color: #fff;
+      }
+
+      .subtotal-row td {
+        border-top: 1px solid #444;
+        padding-top: 12px;
+        font-weight: bold;
+        color: var(--gold);
+        text-align: right;
+        page-break-inside: avoid;
+      }
+
+      /* Summary Section */
+      .summary-box {
+        background-color: #2a2a2a;
+        border: 1px solid #444;
+        border-left: 4px solid var(--gold);
+        padding: 20px;
+        margin-top: 30px;
+        width: 100%;
+        box-sizing: border-box;
+        page-break-inside: avoid;
+      }
+
+      .summary-row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+        font-size: 14px;
+        color: #ccc;
+      }
+
+      .grand-total {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #555;
+        font-size: 20px;
+        font-weight: bold;
+        color: var(--gold);
+        font-family: 'Playfair Display', serif;
+      }
+
+      .per-person {
+        text-align: right;
+        font-size: 12px;
+        color: #888;
+        margin-top: 5px;
+        font-style: italic;
+      }
+
+      /* Footer */
+      footer {
+        margin-top: 40px;
+        text-align: center;
+        font-size: 11px;
+        color: #666;
+        border-top: 1px solid #333;
+        padding-top: 20px;
+        page-break-inside: avoid;
+      }
+
+      .terms {
+        margin-bottom: 15px;
+        font-style: italic;
+      }
+
+      .signature-line {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 50px;
+        page-break-inside: avoid;
+      }
+
+      .sig-box {
+        text-align: center;
+        width: 200px;
+      }
+
+      .sig-line {
+        border-bottom: 1px solid #555;
+        height: 30px;
+        margin-bottom: 10px;
+      }
+    </style>
+  <style>
+            .flipX video::-webkit-media-text-track-display {
+                transform: matrix(-1, 0, 0, 1, 0, 0) !important;
+            }
+            .flipXY video::-webkit-media-text-track-display {
+                transform: matrix(-1, 0, 0, -1, 0, 0) !important;
+            }
+            .flipXYX video::-webkit-media-text-track-display {
+                transform: matrix(1, 0, 0, -1, 0, 0) !important;
+            }</style><style>
+            @keyframes blinkWarning {
+                0% { color: red; }
+                100% { color: white; }
+            }
+            @-webkit-keyframes blinkWarning {
+                0% { color: red; }
+                100% { color: white; }
+            }
+            .blinkWarning {
+                -webkit-animation: blinkWarning 1s linear infinite;
+                -moz-animation: blinkWarning 1s linear infinite;
+                animation: blinkWarning 1s linear infinite;
+            }</style><style>
+            .flipX video::-webkit-media-text-track-display {
+                transform: matrix(-1, 0, 0, 1, 0, 0) !important;
+            }
+            .flipXY video::-webkit-media-text-track-display {
+                transform: matrix(-1, 0, 0, -1, 0, 0) !important;
+            }
+            .flipXYX video::-webkit-media-text-track-display {
+                transform: matrix(1, 0, 0, -1, 0, 0) !important;
+            }</style><style>
+            @keyframes blinkWarning {
+                0% { color: red; }
+                100% { color: white; }
+            }
+            @-webkit-keyframes blinkWarning {
+                0% { color: red; }
+                100% { color: white; }
+            }
+            .blinkWarning {
+                -webkit-animation: blinkWarning 1s linear infinite;
+                -moz-animation: blinkWarning 1s linear infinite;
+                animation: blinkWarning 1s linear infinite;
+            }</style></head>
+  <body style="">
+    <div class="page-container">
+      <!-- Decorative Corners -->
+      <div class="corner top-left"></div>
+      <div class="corner top-right"></div>
+      <div class="corner bottom-left"></div>
+      <div class="corner bottom-right"></div>
+
+      <header>
+        <h1>Al Nile Gourmet | <span style="font-family: 'Amiri', serif">مطعم النيل غورمية</span></h1>
+        <div class="location">Dubai, UAE</div>
+        <div class="doc-title">QUOTATION | كوتيشن</div>
+        <div class="subtitle">Set Menu for 30 Persons | سيت منيو لـ ٣٠ شخص</div>
+
+        <div class="meta-info">
+          <span><strong>Date:</strong> <span id="current-date">03/03/2026</span></span>
+          <span><strong>Ref No:</strong> NG-QT-2026-001</span>
+        </div>
+      </header>
+
+      <!-- Section 1: Savory Pie -->
+      <div class="section-title">
+        <span>A. SAVORY PIE</span>
+        <span style="font-family: 'Amiri', serif">الفطير الحادق</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 50%">Item / الصنف</th>
+            <th class="center" style="width: 15%">Qty / الكمية</th>
+            <th class="num" style="width: 15%">Unit Price</th>
+            <th class="num" style="width: 20%">Total (AED)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span class="item-ar">فطيرة مشكل لحوم</span>
+              <span class="item-en">Mix Meat Pie</span>
+            </td>
+            <td class="qty">3</td>
+            <td class="price">50.00</td>
+            <td class="price">150.00</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="item-ar">فطيرة مشكل جبن</span>
+              <span class="item-en">Mix Cheese Pie</span>
+            </td>
+            <td class="qty">2</td>
+            <td class="price">49.00</td>
+            <td class="price">98.00</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="item-ar">فطيرة مشكل خضار</span>
+              <span class="item-en">Mix Vegetable Pie</span>
+            </td>
+            <td class="qty">2</td>
+            <td class="price">42.00</td>
+            <td class="price">84.00</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="item-ar">فطيرة جمبري</span>
+              <span class="item-en">Shrimp Pie</span>
+            </td>
+            <td class="qty">1</td>
+            <td class="price">55.00</td>
+            <td class="price">55.00</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="item-ar">النيل غورميه حادق</span>
+              <span class="item-en">Nile Gourmet Pie</span>
+            </td>
+            <td class="qty">1</td>
+            <td class="price">65.00</td>
+            <td class="price">65.00</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="item-ar">مشلتت النيل</span>
+              <span class="item-en">Mshaltet Al-Nile</span>
+            </td>
+            <td class="qty">1</td>
+            <td class="price">69.00</td>
+            <td class="price">69.00</td>
+          </tr>
+          <tr class="subtotal-row">
+            <td colspan="3">Subtotal / المجموع الفرعي</td>
+            <td>521.00 AED</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Section 2: Sweet Pie -->
+      <div class="section-title">
+        <span>B. SWEET PIE</span>
+        <span style="font-family: 'Amiri', serif">الفطير الحلو</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 50%">Item / الصنف</th>
+            <th class="center" style="width: 15%">Qty / الكمية</th>
+            <th class="num" style="width: 15%">Unit Price</th>
+            <th class="num" style="width: 20%">Total (AED)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span class="item-ar">بغاشه حليب وسكر</span>
+              <span class="item-en">Milk &amp; Sugar Poghasha</span>
+            </td>
+            <td class="qty">1</td>
+            <td class="price">39.00</td>
+            <td class="price">39.00</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="item-ar">كاستر</span>
+              <span class="item-en">Custard</span>
+            </td>
+            <td class="qty">1</td>
+            <td class="price">35.00</td>
+            <td class="price">35.00</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="item-ar">قشطه وعسل</span>
+              <span class="item-en">Cream &amp; Honey</span>
+            </td>
+            <td class="qty">1</td>
+            <td class="price">40.00</td>
+            <td class="price">40.00</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="item-ar">نوتيلا مكسرات</span>
+              <span class="item-en">Nutella with Nuts</span>
+            </td>
+            <td class="qty">1</td>
+            <td class="price">40.00</td>
+            <td class="price">40.00</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="item-ar">النيل غورميه حلو</span>
+              <span class="item-en">El Nile Sweet</span>
+            </td>
+            <td class="qty">1</td>
+            <td class="price">49.00</td>
+            <td class="price">49.00</td>
+          </tr>
+          <tr class="subtotal-row">
+            <td colspan="3">Subtotal / المجموع الفرعي</td>
+            <td>203.00 AED</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Section 3: Pizza -->
+      <div class="section-title">
+        <span>C. ITALIAN PIZZA</span>
+        <span style="font-family: 'Amiri', serif">بيتزا إيطالي</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th style="width: 50%">Item / الصنف</th>
+            <th class="center" style="width: 15%">Qty / الكمية</th>
+            <th class="num" style="width: 15%">Unit Price</th>
+            <th class="num" style="width: 20%">Total (AED)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <span class="item-ar">بيتزا مارغيريتا</span>
+              <span class="item-en">Margherita Pizza</span>
+            </td>
+            <td class="qty">2</td>
+            <td class="price">45.00</td>
+            <td class="price">90.00</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="item-ar">بيتزا فراخ</span>
+              <span class="item-en">Chicken Pizza</span>
+            </td>
+            <td class="qty">2</td>
+            <td class="price">45.00</td>
+            <td class="price">90.00</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="item-ar">بيتزا مكس لحوم</span>
+              <span class="item-en">Mixed Meat Pizza</span>
+            </td>
+            <td class="qty">2</td>
+            <td class="price">52.00</td>
+            <td class="price">104.00</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="item-ar">بيتزا النيل حشو الأطراف</span>
+              <span class="item-en">El Nile Stuffed Crust Pizza</span>
+            </td>
+            <td class="qty">1</td>
+            <td class="price">69.00</td>
+            <td class="price">69.00</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="item-ar">بيتزا جمبري</span>
+              <span class="item-en">Shrimp Pizza</span>
+            </td>
+            <td class="qty">1</td>
+            <td class="price">60.00</td>
+            <td class="price">60.00</td>
+          </tr>
+          <tr>
+            <td>
+              <span class="item-ar">بيتزا مكس جبن</span>
+              <span class="item-en">Mixed Cheese Pizza</span>
+            </td>
+            <td class="qty">1</td>
+            <td class="price">49.00</td>
+            <td class="price">49.00</td>
+          </tr>
+          <tr class="subtotal-row">
+            <td colspan="3">Subtotal / المجموع الفرعي</td>
+            <td>462.00 AED</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Summary -->
+      <div class="summary-box">
+        <div class="summary-row">
+          <span>Savory Pies Subtotal</span>
+          <span>521.00 AED</span>
+        </div>
+        <div class="summary-row">
+          <span>Sweet Pies Subtotal</span>
+          <span>203.00 AED</span>
+        </div>
+        <div class="summary-row">
+          <span>Italian Pizza Subtotal</span>
+          <span>462.00 AED</span>
+        </div>
+        <div class="grand-total">
+          <span>GRAND TOTAL | الإجمالي الكلي</span>
+          <span>1,186.00 AED</span>
+        </div>
+        <div class="per-person">~39.5 AED per person / للشخص الواحد</div>
+      </div>
+
+      <footer>
+        <div class="terms">
+          Prices exclude VAT if applicable. Please confirm 24 hours in advance.<br>
+          الأسعار لا تشمل ضريبة القيمة المضافة إن وجدت. يرجى التأكيد قبل ٢٤ ساعة.
+        </div>
+
+        <p>Thank you for choosing Al Nile Gourmet.<br>شكراً لاختياركم مطعم النيل غورمية.</p>
+
+        <div class="signature-line">
+          <div class="sig-box">
+            <div class="sig-line"></div>
+            <small>Client Signature | توقيع العميل</small>
+          </div>
+          <div class="sig-box">
+            <div class="sig-line"></div>
+            <small>Restaurant Management | إدارة المطعم</small>
+          </div>
+        </div>
+      </footer>
+    </div>
+  
+  <script>
+    // Set current date
+    document.getElementById('current-date').textContent = new Date().toLocaleDateString('en-GB');
+  </script>
+
+</body></html>
